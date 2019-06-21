@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: helm-nginx
+  name: helm-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: helm-nginx
+    spec:
+      containers:
+      - image: pasitconsulting/docker-nginx:1.0.1
+        name: docker-nginx
+        resources: {}
+status: {}
