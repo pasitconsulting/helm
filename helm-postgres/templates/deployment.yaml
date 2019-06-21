@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: postgres-sample
+  name: postgres-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-sample
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: postgres-sample
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:latest
+        ports:
+          - containerPort: 5432 
+            protocol: TCP
+        env:
+          - name: POSTGRES_DB
+            valueFrom: 
+              configMapKeyRef:
+                name: postgres-configmap
+                key: postgres_db
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-configmap
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-sample-secret
+                key: postgres_password
+        resources: {}
+status: {}
