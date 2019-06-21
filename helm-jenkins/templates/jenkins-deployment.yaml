@@ -18,7 +18,7 @@ spec:
         app: jenkins
     spec:
       containers:
-      - image: pasitconsulting/jenkins:latest
+      - image: pasitconsulting/jenkins:1.0.2
         name: ubuntu
         resources: {}
 status: {}

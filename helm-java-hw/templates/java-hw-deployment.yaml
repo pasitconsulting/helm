@@ -18,7 +18,7 @@ spec:
         app: java-hw
     spec:
       containers:
-      - image: pasitconsulting/kubernetes/docker/docker-java-helloworld
+      - image: pasitconsulting/docker-java-helloworld:1.0.1
         name: docker-java-helloworld
         resources: {}
 status: {}
