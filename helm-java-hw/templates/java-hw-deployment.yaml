@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: java-hw
+  name: java-hw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-hw
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: java-hw
+    spec:
+      containers:
+      - image: pasitconsulting/kubernetes/docker/docker-java-helloworld
+        name: docker-java-helloworld
+        resources: {}
+status: {}
