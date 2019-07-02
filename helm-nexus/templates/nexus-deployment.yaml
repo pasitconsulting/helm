@@ -3,25 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: helm-nginx
-  name: helm-nginx
+    app: nexus
+  name: nexus
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helm-nginx
+      app: nexus
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: helm-nginx
+        app: nexus
     spec:
       containers:
-      - image: pasitconsulting/docker-nginx:1.0.1
-        ports:
-          - containerPort: 5432 
-            protocol: TCP
-        name: docker-nginx
+      - image: pasitconsulting/nexus:1.0.6
+        name: nexus
         resources: {}
 status: {}
